@@ -1,0 +1,19 @@
+{
+  "name": "imad-base",
+  "version": "0.1.0",
+  "description": "IMAD course app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cookies": "^0.7.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "pg": "^7.4.0",
+    "request": "^2.83.0"
+  }
+}
