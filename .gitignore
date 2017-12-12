@@ -1,3 +1,5 @@
+#node_modules from npm install
+node_modules/*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
