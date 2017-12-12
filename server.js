@@ -17,16 +17,19 @@ app.get('/robots.txt',function(req,res){
 
 //Set Cookie Value
 app.get('/setcookie',function(req,res){
-  var cookie=req.cookies;
+  var cookie=req.cookies.CookieMonster;
   if(cookie===undefined){
-    res.cookie('Name','Ayan Choudhury');
-    res.cookie('Age','20');
-    res.send('Cookie Set');
+    let values={
+      name:'Ayan Choudhury',
+      age:20
+      }
+    res.cookie('CookieMonster',JSON.stringify(values));
+    res.send('Cookie Set.');
     console.log('Cookie Created.');
   }
   else{
-    res.send('Cookie Already Exists');
-    console.log('Cookie already exists')
+    res.send('Cookie already exists.');
+    console.log('Cookie already exists.')
   }
 });
 
@@ -34,11 +37,12 @@ app.get('/setcookie',function(req,res){
 app.get('/getcookies',function(req,res){
   var cookie=req.cookies;
   var output="";
-  var jsoncookie=JSON.stringify(cookie);
   for(var item in cookie){
-    console.log(item);
-    output+="Cookie \'"+item+"\' has the value "+cookie[item]+"<br>";
-    console.log(item);
+    output+="Cookie \'"+item+"\' has the values "+cookie[item]+"<br>";
+    var s=JSON.parse(cookie[item]);
+    for(var i in s){
+      output+="The attribute key \'"+i+"\' has the value \'"+s[i]+"\'<br>";
+    }
   }
   res.send(output.toString());
   console.log(cookie);
